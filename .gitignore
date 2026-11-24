@@ -1,0 +1,7 @@
+data/
+runs/
+cache/
+results_dry/
+__pycache__/
+*.pyc
+.DS_Store

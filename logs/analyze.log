@@ -1,0 +1,87 @@
+delta = max(0.005, SD_seeds(concat-clean val)=0.0226) = 0.0226
+
+H1  interaction [(ARF-static)|skip - (ARF-static)|clean], OOD(FG), per-patient Dice: +0.0092 [-0.0320, +0.0457] p=0.6306
+    -> NOT SUPPORTED: no evidence of an interaction at this design's resolution
+H2  ARF-static, clean training, ID test: -0.0152 [-0.0423, +0.0070] -> NOT shown to be within +-delta
+
+Descriptive contrasts (no multiplicity control; exploratory):
+  ARF-static | clean                            test_id/clean  -0.0152 [-0.0427, +0.0077]
+  ARF-static | skip                             test_id/clean  -0.0235 [-0.0861, +0.0349]
+  interaction ARF-static                        test_id/clean  -0.0083 [-0.0728, +0.0419]
+  concat-static | clean                         test_id/clean  +0.0047 [-0.0209, +0.0299]
+  concat-static | skip                          test_id/clean  -0.0154 [-0.0795, +0.0349]
+  skip-regime effect, concat                    test_id/clean  -0.0033 [-0.0386, +0.0319]
+  skip-regime effect, static                    test_id/clean  +0.0168 [-0.0327, +0.0731]
+  skip-regime effect, arf                       test_id/clean  +0.0084 [-0.0315, +0.0522]
+  skip-regime effect, arf_nodiff                test_id/clean  -0.0074 [-0.0380, +0.0175]
+  H3a interaction (ARF - ARFnodiff)             test_id/clean  +0.0158 [-0.0251, +0.0655]
+  ARF-static | clean                            test_ood/clean -0.0061 [-0.0437, +0.0426]
+  ARF-static | skip                             test_ood/clean +0.0031 [-0.0075, +0.0142]
+  interaction ARF-static                        test_ood/clean +0.0092 [-0.0332, +0.0459]
+  concat-static | clean                         test_ood/clean +0.0134 [-0.0207, +0.0670]
+  concat-static | skip                          test_ood/clean -0.0125 [-0.0489, +0.0090]
+  skip-regime effect, concat                    test_ood/clean -0.0091 [-0.0621, +0.0253]
+  skip-regime effect, static                    test_ood/clean +0.0168 [-0.0070, +0.0551]
+  skip-regime effect, arf                       test_ood/clean +0.0260 [+0.0032, +0.0536]
+  skip-regime effect, arf_nodiff                test_ood/clean +0.0166 [-0.0148, +0.0549]
+  H3a interaction (ARF - ARFnodiff)             test_ood/clean +0.0094 [-0.0196, +0.0351]
+
+Corruption interactions (ARF-static, skip minus clean), Holm over 9:
+  test_id/noise_0.1      -0.0052 [-0.0599, +0.0453]  p=0.8540  p_holm=1.0000
+  test_id/noise_0.2      +0.0461 [+0.0045, +0.0923]  p=0.0262  p_holm=0.2358
+  test_id/noise_0.4      +0.0272 [-0.0196, +0.0779]  p=0.2800  p_holm=1.0000
+  test_id/blur_1         +0.0305 [-0.0125, +0.0860]  p=0.2184  p_holm=1.0000
+  test_id/blur_2         +0.0150 [-0.0339, +0.0654]  p=0.5422  p_holm=1.0000
+  test_id/blur_3         -0.0102 [-0.0933, +0.0629]  p=0.8542  p_holm=1.0000
+  test_id/bias_0.1       -0.0141 [-0.0810, +0.0391]  p=0.7022  p_holm=1.0000
+  test_id/bias_0.2       -0.0188 [-0.0889, +0.0331]  p=0.6004  p_holm=1.0000
+  test_id/bias_0.3       -0.0324 [-0.0905, +0.0148]  p=0.2148  p_holm=1.0000
+
+SRI (test_id; mean+-SD over seeds), level 0 = shallowest:
+  concat     clean L0 0.206+-0.060  L1 0.311+-0.016  L2 0.167+-0.058  L3 0.063+-0.067
+  concat     skip  L0 0.012+-0.003  L1 0.004+-0.002  L2 0.026+-0.013  L3 0.008+-0.020
+  static     clean L0 0.143+-0.091  L1 0.379+-0.080  L2 0.225+-0.062  L3 0.237+-0.014
+  static     skip  L0 0.008+-0.003  L1 0.015+-0.003  L2 0.005+-0.006  L3 0.004+-0.006
+  arf        clean L0 0.251+-0.167  L1 0.300+-0.083  L2 0.221+-0.068  L3 0.221+-0.120
+  arf        skip  L0 0.015+-0.005  L1 0.008+-0.013  L2 0.018+-0.007  L3 0.009+-0.015
+  arf_nodiff clean L0 0.159+-0.010  L1 0.369+-0.121  L2 0.312+-0.055  L3 0.143+-0.056
+  arf_nodiff skip  L0 0.007+-0.004  L1 0.012+-0.001  L2 0.018+-0.006  L3 0.006+-0.005
+
+Gate alpha on test_id (mean over seeds of: mean alpha | between-image SD | within-image SD):
+  static     clean L0  mean 0.4916 | between n/a | within n/a
+  static     clean L1  mean 0.5006 | between n/a | within n/a
+  static     clean L2  mean 0.5020 | between n/a | within n/a
+  static     clean L3  mean 0.4932 | between n/a | within n/a
+  static     skip  L0  mean 0.4960 | between n/a | within n/a
+  static     skip  L1  mean 0.4961 | between n/a | within n/a
+  static     skip  L2  mean 0.4912 | between n/a | within n/a
+  static     skip  L3  mean 0.4804 | between n/a | within n/a
+  arf        clean L0  mean 0.3282 | between 0.0153 | within 0.2809
+  arf        clean L1  mean 0.4199 | between 0.0110 | within 0.3141
+  arf        clean L2  mean 0.4717 | between 0.0037 | within 0.1563
+  arf        clean L3  mean 0.4744 | between 0.0070 | within 0.1440
+  arf        skip  L0  mean 0.1975 | between 0.0189 | within 0.2024
+  arf        skip  L1  mean 0.3702 | between 0.0169 | within 0.1899
+  arf        skip  L2  mean 0.4165 | between 0.0029 | within 0.1130
+  arf        skip  L3  mean 0.2881 | between 0.0067 | within 0.3421
+  arf_nodiff clean L0  mean 0.2917 | between 0.0387 | within 0.2369
+  arf_nodiff clean L1  mean 0.4886 | between 0.0152 | within 0.3171
+  arf_nodiff clean L2  mean 0.4505 | between 0.0092 | within 0.2602
+  arf_nodiff clean L3  mean 0.5342 | between 0.0074 | within 0.3289
+  arf_nodiff skip  L0  mean 0.2193 | between 0.0204 | within 0.2762
+  arf_nodiff skip  L1  mean 0.2866 | between 0.0179 | within 0.3528
+  arf_nodiff skip  L2  mean 0.2125 | between 0.0074 | within 0.3702
+  arf_nodiff skip  L3  mean 0.3140 | between 0.0056 | within 0.3884
+
+MAIN TABLE (mean+-SD over seeds):
+variant/regime | params | GFLOPs | val | ID Dice | OOD Dice | ID HD95(px) | ID FP px/empty slice
+concat/clean | 6,719,905 | 20.85 | 0.795+-0.023 | 0.771+-0.018 | 0.828+-0.026 | 10.929+-0.766 | 15.945+-8.727
+concat/skip | 6,719,905 | 20.85 | 0.785+-0.011 | 0.768+-0.004 | 0.818+-0.015 | 11.117+-0.576 | 67.106+-88.811
+static/clean | 6,545,825 | 19.77 | 0.796+-0.013 | 0.766+-0.041 | 0.814+-0.027 | 11.204+-0.308 | 52.250+-74.336
+static/skip | 6,545,825 | 19.77 | 0.789+-0.007 | 0.783+-0.003 | 0.831+-0.029 | 10.871+-0.646 | 115.648+-12.050
+arf/clean | 7,155,225 | 23.53 | 0.796+-0.014 | 0.751+-0.027 | 0.808+-0.026 | 11.660+-0.201 | 14.728+-10.518
+arf/skip | 7,155,225 | 23.53 | 0.770+-0.006 | 0.760+-0.012 | 0.834+-0.023 | 12.173+-0.795 | 19.884+-24.160
+arf_nodiff/clean | 6,959,385 | 22.32 | 0.785+-0.012 | 0.780+-0.032 | 0.814+-0.040 | 10.918+-0.275 | 16.806+-7.316
+arf_nodiff/skip | 6,959,385 | 22.32 | 0.789+-0.004 | 0.773+-0.026 | 0.830+-0.029 | 11.595+-0.869 | 18.245+-15.604
+
+wrote analysis.json, fig1_corruption.*, fig2_sri.*

@@ -1,0 +1,97 @@
+concat_clean_s0        base 0.821  all-zero 0.239
+concat_clean_s1        base 0.780  all-zero 0.126
+concat_clean_s2        base 0.784  all-zero 0.382
+concat_skip_s0         base 0.782  all-zero 0.582
+concat_skip_s1         base 0.775  all-zero 0.639
+concat_skip_s2         base 0.797  all-zero 0.528
+static_clean_s0        base 0.809  all-zero 0.111
+static_clean_s1        base 0.783  all-zero 0.102
+static_clean_s2        base 0.797  all-zero 0.129
+static_skip_s0         base 0.793  all-zero 0.612
+static_skip_s1         base 0.780  all-zero 0.543
+static_skip_s2         base 0.794  all-zero 0.668
+arf_clean_s0           base 0.780  all-zero 0.484
+arf_clean_s1           base 0.799  all-zero 0.170
+arf_clean_s2           base 0.807  all-zero 0.058
+arf_skip_s0            base 0.764  all-zero 0.518
+arf_skip_s1            base 0.769  all-zero 0.583
+arf_skip_s2            base 0.776  all-zero 0.680
+arf_nodiff_clean_s0    base 0.772  all-zero 0.185
+arf_nodiff_clean_s1    base 0.786  all-zero 0.016
+arf_nodiff_clean_s2    base 0.796  all-zero 0.064
+arf_nodiff_skip_s0     base 0.792  all-zero 0.090
+arf_nodiff_skip_s1     base 0.785  all-zero 0.600
+arf_nodiff_skip_s2     base 0.791  all-zero 0.678
+
+== (zero) Redundancy: absolute Dice loss; sum of the 4 single-level losses vs all 4 removed together; mean±sd over seeds ==
+operator   regime          base   sum singles      all four   ratio     k=1 mean     k=2 mean     k=3 mean     k=4 mean
+arf        clean    0.796±0.012   0.501±0.329   0.558±0.192     1.1  0.125±0.082  0.269±0.137  0.428±0.176  0.558±0.192
+arf        skip     0.770±0.005   0.039±0.003   0.176±0.061     4.5  0.010±0.001  0.031±0.002  0.077±0.012  0.176±0.061
+arf_nodiff clean    0.785±0.010   0.470±0.084   0.696±0.079     1.5  0.117±0.021  0.310±0.047  0.528±0.053  0.696±0.079
+arf_nodiff skip     0.789±0.003   0.242±0.321   0.333±0.262     1.4  0.061±0.080  0.128±0.158  0.213±0.224  0.333±0.262
+concat     clean    0.795±0.018   0.239±0.125   0.546±0.106     2.3  0.060±0.031  0.195±0.079  0.375±0.117  0.546±0.106
+concat     skip     0.785±0.009   0.036±0.013   0.201±0.054     5.7  0.009±0.003  0.035±0.010  0.092±0.022  0.201±0.054
+static     clean    0.796±0.011   0.255±0.031   0.682±0.012     2.7  0.064±0.008  0.240±0.017  0.490±0.012  0.682±0.012
+static     skip     0.789±0.006   0.019±0.012   0.181±0.045     9.7  0.005±0.003  0.022±0.008  0.070±0.020  0.181±0.045
+
+== (zero) Dice loss per removed subset (mean over seeds) ==
+operator   regime      0     1     2     3    01    02    03    12    13    23   012   013   023   123  0123
+arf        clean   0.184 0.151 0.055 0.111 0.428 0.143 0.246 0.214 0.303 0.280 0.423 0.487 0.374 0.427 0.558
+arf        skip    0.004 0.009 0.018 0.008 0.041 0.026 0.012 0.047 0.032 0.030 0.105 0.071 0.039 0.093 0.176
+arf_nodiff clean   0.052 0.199 0.197 0.022 0.452 0.227 0.087 0.492 0.305 0.297 0.639 0.557 0.304 0.614 0.696
+arf_nodiff skip    0.001 0.012 0.230-0.002 0.028 0.235 0.001 0.258 0.012 0.234 0.317 0.030 0.239 0.267 0.333
+concat     clean   0.016 0.118 0.092 0.013 0.317 0.143 0.038 0.358 0.156 0.158 0.499 0.347 0.223 0.432 0.546
+concat     skip    0.007 0.013 0.011 0.004 0.047 0.025 0.016 0.069 0.025 0.026 0.148 0.066 0.047 0.110 0.201
+static     clean   0.018 0.114 0.073 0.051 0.251 0.123 0.084 0.374 0.266 0.342 0.537 0.410 0.390 0.622 0.682
+static     skip    0.000 0.012 0.003 0.004 0.035 0.005 0.005 0.055 0.024 0.009 0.114 0.055 0.014 0.097 0.181
+
+== (shut) Redundancy: absolute Dice loss; sum of the 4 single-level losses vs all 4 removed together; mean±sd over seeds ==
+operator   regime          base   sum singles      all four   ratio     k=1 mean     k=2 mean     k=3 mean     k=4 mean
+arf        clean    0.796±0.012   0.574±0.368   0.699±0.080     1.2  0.143±0.092  0.308±0.176  0.499±0.185  0.699±0.080
+arf        skip     0.770±0.005   0.036±0.020   0.127±0.025     3.5  0.009±0.005  0.026±0.010  0.059±0.013  0.127±0.025
+arf_nodiff clean    0.785±0.010   0.534±0.300   0.692±0.140     1.3  0.133±0.075  0.308±0.103  0.517±0.092  0.692±0.140
+arf_nodiff skip     0.789±0.003   0.038±0.033   0.306±0.257     8.1  0.009±0.008  0.035±0.027  0.118±0.098  0.306±0.257
+static     clean    0.796±0.011   0.262±0.040   0.682±0.012     2.6  0.066±0.010  0.242±0.018  0.494±0.015  0.682±0.012
+static     skip     0.789±0.006   0.019±0.012   0.191±0.050     9.8  0.005±0.003  0.024±0.009  0.074±0.022  0.191±0.050
+
+== (shut) Dice loss per removed subset (mean over seeds) ==
+operator   regime      0     1     2     3    01    02    03    12    13    23   012   013   023   123  0123
+arf        clean   0.166 0.104 0.186 0.119 0.332 0.300 0.247 0.358 0.278 0.331 0.490 0.519 0.452 0.535 0.699
+arf        skip    0.001 0.017 0.011 0.007 0.032 0.017 0.008 0.052 0.025 0.021 0.093 0.043 0.028 0.074 0.127
+arf_nodiff clean   0.044 0.169 0.309 0.011 0.403 0.309 0.055 0.480 0.244 0.361 0.654 0.464 0.357 0.591 0.692
+arf_nodiff skip    0.002 0.015 0.022-0.001 0.047 0.027 0.002 0.089 0.015 0.027 0.287 0.048 0.032 0.103 0.306
+static     clean   0.018 0.114 0.079 0.052 0.249 0.132 0.086 0.377 0.276 0.335 0.543 0.420 0.387 0.626 0.682
+static     skip    0.000 0.012 0.003 0.004 0.037 0.006 0.006 0.057 0.025 0.010 0.118 0.059 0.016 0.102 0.191
+
+== Pixel-level gate change at the corrupted level: mean |d alpha| [frac elements |d alpha|>0.1]; ref = within-image SD of clean alpha ==
+operator   regime pert                  L0               L1               L2               L3
+arf        clean  ref                0.282            0.317            0.156            0.146
+arf        clean  roll      0.0485 [0.13]   0.0413 [0.11]   0.0148 [0.04]   0.0601 [0.14]
+arf        clean  noise     0.0263 [0.05]   0.0152 [0.02]   0.0040 [0.01]   0.0072 [0.02]
+arf        clean  shift     0.0509 [0.15]   0.0426 [0.12]   0.0177 [0.04]   0.0670 [0.16]
+arf        clean  blur      0.0152 [0.01]   0.0113 [0.01]   0.0052 [0.01]   0.0262 [0.07]
+arf        clean  chdrop    0.0286 [0.07]   0.0231 [0.05]   0.0072 [0.02]   0.0114 [0.03]
+arf        clean  zero      0.0631 [0.22]   0.0501 [0.17]   0.0415 [0.13]   0.0641 [0.16]
+arf        skip   ref                0.203            0.191            0.112            0.341
+arf        skip   roll      0.0431 [0.12]   0.0531 [0.16]   0.0141 [0.03]   0.0350 [0.11]
+arf        skip   noise     0.0162 [0.00]   0.0160 [0.01]   0.0030 [0.00]   0.0108 [0.01]
+arf        skip   shift     0.0415 [0.13]   0.0546 [0.18]   0.0152 [0.04]   0.0448 [0.15]
+arf        skip   blur      0.0156 [0.00]   0.0145 [0.01]   0.0044 [0.00]   0.0239 [0.06]
+arf        skip   chdrop    0.0252 [0.03]   0.0298 [0.06]   0.0052 [0.00]   0.0120 [0.01]
+arf        skip   zero      0.0722 [0.24]   0.0918 [0.34]   0.0136 [0.03]   0.0952 [0.38]
+arf_nodiff clean  ref                0.239            0.316            0.262            0.330
+arf_nodiff clean  roll      0.0261 [0.05]   0.0842 [0.25]   0.1095 [0.32]   0.1026 [0.27]
+arf_nodiff clean  noise     0.0136 [0.01]   0.0274 [0.05]   0.0253 [0.04]   0.0274 [0.08]
+arf_nodiff clean  shift     0.0276 [0.07]   0.0837 [0.24]   0.1183 [0.34]   0.1285 [0.33]
+arf_nodiff clean  blur      0.0087 [0.00]   0.0187 [0.03]   0.0342 [0.08]   0.0584 [0.17]
+arf_nodiff clean  chdrop    0.0158 [0.01]   0.0396 [0.10]   0.0358 [0.09]   0.0309 [0.09]
+arf_nodiff clean  zero      0.0271 [0.03]   0.0869 [0.28]   0.1524 [0.49]   0.1152 [0.34]
+arf_nodiff skip   ref                0.277            0.354            0.370            0.388
+arf_nodiff skip   roll      0.0453 [0.12]   0.0509 [0.15]   0.0273 [0.07]   0.0407 [0.11]
+arf_nodiff skip   noise     0.0223 [0.03]   0.0160 [0.02]   0.0087 [0.02]   0.0057 [0.01]
+arf_nodiff skip   shift     0.0448 [0.13]   0.0510 [0.15]   0.0293 [0.07]   0.0572 [0.15]
+arf_nodiff skip   blur      0.0172 [0.02]   0.0136 [0.02]   0.0104 [0.03]   0.0166 [0.05]
+arf_nodiff skip   chdrop    0.0326 [0.07]   0.0269 [0.07]   0.0151 [0.04]   0.0107 [0.03]
+arf_nodiff skip   zero      0.1079 [0.41]   0.0783 [0.28]   0.1030 [0.19]   0.0753 [0.16]
+
+wrote subset_probe_val.json
